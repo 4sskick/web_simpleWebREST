@@ -1,4 +1,4 @@
-package com.niteroomcreation.simplewebrest.db;
+package com.niteroomcreation.simplewebrest.data.db;
 
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.function.SQLFunctionTemplate;
