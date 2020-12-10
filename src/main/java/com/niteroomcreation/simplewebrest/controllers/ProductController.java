@@ -1,14 +1,13 @@
 package com.niteroomcreation.simplewebrest.controllers;
 
 import com.niteroomcreation.simplewebrest.models.Product;
-import com.niteroomcreation.simplewebrest.services.ProductService;
+import com.niteroomcreation.simplewebrest.models.data.services.ProductService;
 import com.niteroomcreation.simplewebrest.views.responses.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by monta on 04/12/20
@@ -24,14 +23,12 @@ public class ProductController {
 
     @RequestMapping(value = "/products"
             , method = RequestMethod.GET
+            , headers = {"Accept=application/json", "Content-Type=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
-    public BaseResponse getProducts() {
+    public HashMap<String, Object> getProducts() {
 
-//        HashMap<String, Object> resp = new HashMap<>();
-//        resp.put("data", productService.getAll());
-//        resp.put("message", new BaseResponse());
-
-        return new BaseResponse(productService.getAll()).constructResponses();
+        BaseResponse response = new BaseResponse(productService.getAll());
+        return response.constructResponses();
     }
 
     //make support request using RAW json body constructed

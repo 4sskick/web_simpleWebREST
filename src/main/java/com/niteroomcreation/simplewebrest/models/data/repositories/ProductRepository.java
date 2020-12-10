@@ -1,4 +1,4 @@
-package com.niteroomcreation.simplewebrest.data.repositories;
+package com.niteroomcreation.simplewebrest.models.data.repositories;
 
 import com.niteroomcreation.simplewebrest.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;

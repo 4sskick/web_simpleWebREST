@@ -1,19 +1,26 @@
 package com.niteroomcreation.simplewebrest.views.responses;
 
+import java.util.HashMap;
+
 /**
  * Created by monta on 10/12/20
  * please make sure to use credit when you're using people's code
  */
 public class BaseResponse {
 
+    //need to make it less generic
     protected Object data;
 
     public BaseResponse(Object data) {
         this.data = data;
     }
 
-    public BaseResponse constructResponses(){
+    public HashMap<String, Object> constructResponses(){
 
-        return this;
+        HashMap<String, Object> resp = new HashMap<>();
+        resp.put("data", data);
+        resp.put("another", new SuccessResponse("data to message", 9).toString());
+
+        return resp;
     }
 }

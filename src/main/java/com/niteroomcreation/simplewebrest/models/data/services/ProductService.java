@@ -1,6 +1,6 @@
-package com.niteroomcreation.simplewebrest.services;
+package com.niteroomcreation.simplewebrest.models.data.services;
 
-import com.niteroomcreation.simplewebrest.data.repositories.ProductRepository;
+import com.niteroomcreation.simplewebrest.models.data.repositories.ProductRepository;
 import com.niteroomcreation.simplewebrest.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
