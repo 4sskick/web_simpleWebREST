@@ -24,8 +24,11 @@ public class ProductController {
         return productService.getAll();
     }
 
-    @RequestMapping(value = "/product", method = RequestMethod.POST)
-    public Product saveProduct(Product model) {
+    //make support request using RAW json body constructed
+    @RequestMapping(value = "/product"
+            , method = RequestMethod.POST
+            , headers = {"Accept=application/json"})
+    public Product saveProduct(@RequestBody Product model) {
         return productService.save(model);
     }
 
