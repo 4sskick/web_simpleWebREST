@@ -23,8 +23,8 @@ public class ProductService {
         return repo.findAll();
     }
 
-    public void save(Product model){
-        repo.save(model);
+    public Product save(Product model){
+        return repo.save(model);
     }
 
     public Product getById(Integer id){
