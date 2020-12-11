@@ -1,5 +1,7 @@
 package com.niteroomcreation.simplewebrest.views.responses;
 
+import com.niteroomcreation.simplewebrest.utils.Constants;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +20,7 @@ public class BaseResponse {
 
     public HashMap<String, Object> constructResponses() {
 
-        HashMap<String, Object> resp = new SuccessResponse("data to message", 9).constructMsg();
+        HashMap<String, Object> resp = constructingMsg();
 
         if (data instanceof List<?>)
             resp.put("data", data);
@@ -31,5 +33,19 @@ public class BaseResponse {
         }
 
         return resp;
+    }
+
+    private HashMap<String, Object> constructingMsg(){
+
+        HashMap<String, Object> resp = new HashMap<>();
+
+        if(data instanceof List<?>){
+            if(((List<?>)data).isEmpty()){
+                resp.put("message", Constants.DATA_EMPTY);
+//                resp.put("code", )
+            }
+        }
+
+        return new HashMap<>();
     }
 }
