@@ -17,9 +17,8 @@ public class BaseResponse {
 
     public HashMap<String, Object> constructResponses(){
 
-        HashMap<String, Object> resp = new HashMap<>();
+        HashMap<String, Object> resp = new SuccessResponse("data to message", 9).constructMsg();
         resp.put("data", data);
-        resp.put("another", new SuccessResponse("data to message", 9).toString());
 
         return resp;
     }

@@ -23,11 +23,12 @@ public class ProductController {
 
     @RequestMapping(value = "/products"
             , method = RequestMethod.GET
-            , headers = {"Accept=application/json", "Content-Type=application/json"}
+            , headers = {"Accept=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, Object> getProducts() {
 
         BaseResponse response = new BaseResponse(productService.getAll());
+
         return response.constructResponses();
     }
 

@@ -24,4 +24,11 @@ class SuccessResponse {
 
         return resp.toString();
     }
+
+    public HashMap<String, Object> constructMsg(){
+        HashMap<String, Object> resp = new HashMap<>();
+        resp.put("message", message);
+        resp.put("code", code);
+        return resp;
+    }
 }
