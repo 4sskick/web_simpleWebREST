@@ -19,19 +19,22 @@ public class ProductService {
     private ProductRepository repo;
 
     //operation DB
-    public List<Product> getAll(){
+    public List<Product> getAll() {
         return repo.findAll();
     }
 
-    public Product save(Product model){
+    public Product save(Product model) {
         return repo.save(model);
     }
 
-    public Product getById(Integer id){
-        return repo.findById(id).get();
+    public Product getById(Integer id) {
+        if (repo.findById(id).isPresent())
+            return repo.findById(id).get();
+        else
+            return null;
     }
 
-    public void deleteById(Integer id){
+    public void deleteById(Integer id) {
         repo.deleteById(id);
     }
 }

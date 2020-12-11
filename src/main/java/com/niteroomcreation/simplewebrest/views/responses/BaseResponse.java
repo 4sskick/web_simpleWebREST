@@ -1,6 +1,8 @@
 package com.niteroomcreation.simplewebrest.views.responses;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by monta on 10/12/20
@@ -8,17 +10,25 @@ import java.util.HashMap;
  */
 public class BaseResponse {
 
-    //need to make it less generic
     protected Object data;
 
     public BaseResponse(Object data) {
         this.data = data;
     }
 
-    public HashMap<String, Object> constructResponses(){
+    public HashMap<String, Object> constructResponses() {
 
         HashMap<String, Object> resp = new SuccessResponse("data to message", 9).constructMsg();
-        resp.put("data", data);
+
+        if (data instanceof List<?>)
+            resp.put("data", data);
+        else {
+            if (data != null) {
+                resp.put("data", Collections.singletonList(data));
+            } else {
+                resp.put("data", Collections.emptyList());
+            }
+        }
 
         return resp;
     }

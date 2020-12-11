@@ -26,10 +26,7 @@ public class ProductController {
             , headers = {"Accept=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, Object> getProducts() {
-
-        BaseResponse response = new BaseResponse(productService.getAll());
-
-        return response.constructResponses();
+        return new BaseResponse(productService.getAll()).constructResponses();
     }
 
     //make support request using RAW json body constructed
@@ -37,23 +34,23 @@ public class ProductController {
             , method = RequestMethod.POST
             , headers = {"Accept=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
-    public Product saveProduct(@RequestBody Product model) {
-        return productService.save(model);
+    public HashMap<String, Object> saveProduct(@RequestBody Product model) {
+//        return productService.save(model);
+        return new BaseResponse(productService.save(model)).constructResponses();
     }
 
     @RequestMapping(value = "/product"
             , method = RequestMethod.GET
+            , headers = {"Accept=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
-    public Product getProductById(@RequestParam(required = true, value = "id", defaultValue = "-1") Integer productId) {
-
-        if (String.valueOf(productId).equals("-1") || productId < 0)
-            return new Product(-1, "here empty class product", -99.99f);
-
-        return productService.getById(productId);
+    public HashMap<String, Object> getProductById(@RequestParam(value = "id", defaultValue = "-1") Integer productId) {
+//        return productService.getById(productId);
+        return new BaseResponse(productService.getById(productId)).constructResponses();
     }
 
     @RequestMapping(value = "/product"
             , method = RequestMethod.DELETE
+            , headers = {"Accept=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteProductById(Product model) {
 

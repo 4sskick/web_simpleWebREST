@@ -16,19 +16,18 @@ class SuccessResponse {
         this.code = code;
     }
 
-    @Override
-    public String toString() {
-        HashMap<String, Object> resp = new HashMap<>();
-        resp.put("message", message);
-        resp.put("code", code);
-
-        return resp.toString();
-    }
-
-    public HashMap<String, Object> constructMsg(){
+    public HashMap<String, Object> constructMsg() {
         HashMap<String, Object> resp = new HashMap<>();
         resp.put("message", message);
         resp.put("code", code);
         return resp;
+    }
+
+    @Override
+    public String toString() {
+        return "SuccessResponse{" +
+                "message='" + message + '\'' +
+                ", code=" + code +
+                '}';
     }
 }
