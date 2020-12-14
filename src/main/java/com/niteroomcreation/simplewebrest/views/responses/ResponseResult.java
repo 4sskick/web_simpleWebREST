@@ -22,7 +22,7 @@ public class ResponseResult {
     }
 
     private int code;
-    private String message = "";
+    private String message = "data kosong";
     private List<Product> data = Collections.emptyList();
 
     public ResponseResult(int code, String message, List<Product> data) {
