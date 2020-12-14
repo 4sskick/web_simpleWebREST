@@ -6,6 +6,5 @@ package com.niteroomcreation.simplewebrest.views.responses;
  */
 public class ErrorHandlerResponse {
 
-    public ErrorHandlerResponse() {
-    }
+
 }

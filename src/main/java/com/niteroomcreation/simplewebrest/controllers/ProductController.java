@@ -3,11 +3,13 @@ package com.niteroomcreation.simplewebrest.controllers;
 import com.niteroomcreation.simplewebrest.models.Product;
 import com.niteroomcreation.simplewebrest.models.data.services.ProductService;
 import com.niteroomcreation.simplewebrest.views.responses.BaseResponse;
+import com.niteroomcreation.simplewebrest.views.responses.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by monta on 04/12/20
@@ -21,22 +23,46 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+//    @RequestMapping(value = "/products"
+//            , method = RequestMethod.GET
+//            , headers = {"Accept=application/json"}
+//            , produces = MediaType.APPLICATION_JSON_VALUE)
+//    public HashMap<String, Object> getProducts() {
+//        return new BaseResponse(productService.getAll()).constructResponses();
+//    }
+
     @RequestMapping(value = "/products"
             , method = RequestMethod.GET
             , headers = {"Accept=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
-    public HashMap<String, Object> getProducts() {
-        return new BaseResponse(productService.getAll()).constructResponses();
+    public ResponseResult getProducts_edit() {
+
+        ResponseResult resp = ResponseResult.getInstance();
+        resp.setData(productService.getAll());
+
+        return resp;
     }
 
     //make support request using RAW json body constructed
+//    @RequestMapping(value = "/product"
+//            , method = RequestMethod.POST
+//            , headers = {"Accept=application/json"}
+//            , produces = MediaType.APPLICATION_JSON_VALUE)
+//    public HashMap<String, Object> saveProduct(@RequestBody Product model) {
+////        return productService.save(model);
+//        return new BaseResponse(productService.save(model)).constructResponses();
+//    }
+
     @RequestMapping(value = "/product"
             , method = RequestMethod.POST
             , headers = {"Accept=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
-    public HashMap<String, Object> saveProduct(@RequestBody Product model) {
-//        return productService.save(model);
-        return new BaseResponse(productService.save(model)).constructResponses();
+    public ResponseResult saveProduct(@RequestBody Product model) {
+
+        ResponseResult resp = ResponseResult.getInstance();
+        resp.setSingleData(productService.save(model));
+
+        return resp;
     }
 
     @RequestMapping(value = "/product"
