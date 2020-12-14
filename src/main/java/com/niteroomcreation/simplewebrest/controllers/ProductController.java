@@ -83,24 +83,45 @@ public class ProductController {
 
         ResponseResult resp = ResponseResult.getInstance();
 
-        if(productService.getById(productId)!= null)
+        if (productService.getById(productId) != null)
             resp.setSingleData(productService.getById(productId));
         else resp.setData(Collections.emptyList());
 
         return resp;
     }
 
+//    @RequestMapping(value = "/product"
+//            , method = RequestMethod.DELETE
+//            , headers = {"Accept=application/json"}
+//            , produces = MediaType.APPLICATION_JSON_VALUE)
+//    public void deleteProductById(Product model) {
+//
+//        if (getProductById(model.getId()) != null) {
+//            productService.deleteById(model.getId());
+//        } else {
+//
+//        }
+//    }
+
     @RequestMapping(value = "/product"
             , method = RequestMethod.DELETE
             , headers = {"Accept=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteProductById(Product model) {
+    public ResponseResult deleteProductById(@RequestBody Product model) {
 
-        if (getProductById(model.getId()) != null) {
+        ResponseResult resp = ResponseResult.getInstance();
+
+        if (getProductById(model.getId()).getData().size() != 0) {
             productService.deleteById(model.getId());
-        } else {
 
+            resp.setData(productService.getAll());
+            resp.setMessage("dihapus");
+        } else {
+            resp.setCode(1);
+            resp.setMessage("gagal dihapus");
         }
+
+        return resp;
     }
 
 

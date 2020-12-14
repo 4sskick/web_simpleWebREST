@@ -15,7 +15,6 @@ import javax.persistence.Id;
 @Entity
 public class Product {
 
-    @JsonIgnore
     private Integer id;
     private String name;
     private float price;
