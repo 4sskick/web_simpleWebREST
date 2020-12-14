@@ -23,7 +23,7 @@ public class ResponseResult {
 
     private int code;
     private String message = "";
-    private List<Product> data;
+    private List<Product> data = Collections.emptyList();
 
     public ResponseResult(int code, String message, List<Product> data) {
         this.code = code;

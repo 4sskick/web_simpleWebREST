@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -65,13 +66,28 @@ public class ProductController {
         return resp;
     }
 
+//    @RequestMapping(value = "/product"
+//            , method = RequestMethod.GET
+//            , headers = {"Accept=application/json"}
+//            , produces = MediaType.APPLICATION_JSON_VALUE)
+//    public HashMap<String, Object> getProductById(@RequestParam(value = "id", defaultValue = "-1") Integer productId) {
+////        return productService.getById(productId);
+//        return new BaseResponse(productService.getById(productId)).constructResponses();
+//    }
+
     @RequestMapping(value = "/product"
             , method = RequestMethod.GET
             , headers = {"Accept=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
-    public HashMap<String, Object> getProductById(@RequestParam(value = "id", defaultValue = "-1") Integer productId) {
-//        return productService.getById(productId);
-        return new BaseResponse(productService.getById(productId)).constructResponses();
+    public ResponseResult getProductById(@RequestParam(value = "id") Integer productId) {
+
+        ResponseResult resp = ResponseResult.getInstance();
+
+        if(productService.getById(productId)!= null)
+            resp.setSingleData(productService.getById(productId));
+        else resp.setData(Collections.emptyList());
+
+        return resp;
     }
 
     @RequestMapping(value = "/product"
