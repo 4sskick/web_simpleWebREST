@@ -1,6 +1,6 @@
 package com.niteroomcreation.simplewebrest.models.data.repositories;
 
-import com.niteroomcreation.simplewebrest.models.Product;
+import com.niteroomcreation.simplewebrest.models.data.domains.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

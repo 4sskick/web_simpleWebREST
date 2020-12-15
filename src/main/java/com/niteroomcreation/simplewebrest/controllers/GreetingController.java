@@ -1,6 +1,6 @@
 package com.niteroomcreation.simplewebrest.controllers;
 
-import com.niteroomcreation.simplewebrest.models.Greeting;
+import com.niteroomcreation.simplewebrest.models.data.domains.Greeting;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

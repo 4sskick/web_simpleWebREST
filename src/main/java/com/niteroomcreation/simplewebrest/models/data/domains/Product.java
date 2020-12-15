@@ -1,4 +1,4 @@
-package com.niteroomcreation.simplewebrest.models;
+package com.niteroomcreation.simplewebrest.models.data.domains;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

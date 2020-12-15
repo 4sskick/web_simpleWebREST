@@ -1,4 +1,4 @@
-package com.niteroomcreation.simplewebrest.models;
+package com.niteroomcreation.simplewebrest.models.data.domains;
 
 /**
  * Created by monta on 02/12/20

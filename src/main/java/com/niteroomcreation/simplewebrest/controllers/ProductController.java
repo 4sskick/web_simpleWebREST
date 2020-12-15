@@ -1,6 +1,6 @@
 package com.niteroomcreation.simplewebrest.controllers;
 
-import com.niteroomcreation.simplewebrest.models.Product;
+import com.niteroomcreation.simplewebrest.models.data.domains.Product;
 import com.niteroomcreation.simplewebrest.models.data.services.ProductService;
 import com.niteroomcreation.simplewebrest.views.responses.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,7 @@
 package com.niteroomcreation.simplewebrest.views.responses;
 
-import com.niteroomcreation.simplewebrest.models.Product;
+import com.niteroomcreation.simplewebrest.models.data.domains.Product;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
