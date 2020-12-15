@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 @Service
-public class ProductService {
+public class ProductService implements IService<Product>{
 
     @Autowired
     private ProductRepository repo;
@@ -27,14 +27,14 @@ public class ProductService {
         return repo.save(model);
     }
 
-    public Product getById(Integer id) {
+    public Product getById(Long id) {
         if (repo.findById(id).isPresent())
             return repo.findById(id).get();
         else
             return null;
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) {
         repo.deleteById(id);
     }
 }

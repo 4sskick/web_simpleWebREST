@@ -50,7 +50,7 @@ public class ProductController {
             , method = RequestMethod.GET
             , headers = {"Accept=application/json"}
             , produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseResult getProductById(@RequestParam(value = "id") Integer productId) {
+    public ResponseResult getProductById(@RequestParam(value = "id") Long productId) {
 
         ResponseResult resp = ResponseResult.getInstance();
 
