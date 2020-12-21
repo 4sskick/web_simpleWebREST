@@ -1,7 +1,9 @@
 package com.niteroomcreation.simplewebrest;
 
 import com.niteroomcreation.simplewebrest.models.data.domains.Role;
+import com.niteroomcreation.simplewebrest.models.data.domains.User;
 import com.niteroomcreation.simplewebrest.models.data.repositories.RoleRepository;
+import com.niteroomcreation.simplewebrest.models.data.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,8 +15,8 @@ public class Application implements CommandLineRunner {
     @Autowired
     private RoleRepository roleRepo;
 
-//	@Autowired
-//	private UserService userServe;
+    @Autowired
+    private UserRepository userRepo;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -42,10 +44,36 @@ public class Application implements CommandLineRunner {
             roleRepo.save(role);
 
         //begin user
-//		User user = new User();
-//		user.setUserName("monta");
-//		user.setEmail("monta@email.com");
-//		user.setPassword("123qwe");
-//		user.setRole(roleServe.getById());
+        User user = new User();
+        user.setUserName("monta");
+        user.setEmail("monta@email.com");
+        user.setPassword("123qwe");
+        user.setRole(roleRepo.getByName("Manager"));
+        if (userRepo.getByName(user.getUserName()) == null)
+            userRepo.save(user);
+
+        user = new User();
+        user.setUserName("keenan");
+        user.setEmail("keenan@email.com");
+        user.setPassword("123234");
+        user.setRole(roleRepo.getByName("Manager"));
+        if (userRepo.getByName(user.getUserName()) == null)
+            userRepo.save(user);
+
+        user = new User();
+        user.setUserName("alfiani");
+        user.setEmail("keenan@email.com");
+        user.setPassword("123234");
+        user.setRole(roleRepo.getByName("HR"));
+        if (userRepo.getByName(user.getUserName()) == null)
+            userRepo.save(user);
+
+        user = new User();
+        user.setUserName("AIM");
+        user.setEmail("aim@email.com");
+        user.setPassword("123234");
+        user.setRole(roleRepo.getByName("User"));
+        if (userRepo.getByName(user.getUserName()) == null)
+            userRepo.save(user);
     }
 }

@@ -37,4 +37,9 @@ public class UserService implements IService<User> {
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public User getByName(String name) {
+        return repository.getByName(name);
+    }
 }
