@@ -17,4 +17,8 @@ public interface IService<S> {
     S getById(Long id);
 
     void deleteById(Long id);
+
+    default S getByName(String name){
+        return null;
+    }
 }

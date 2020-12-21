@@ -36,4 +36,9 @@ public class RoleService implements IService<Role> {
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public Role getByName(String name) {
+        return repository.getByName(name);
+    }
 }

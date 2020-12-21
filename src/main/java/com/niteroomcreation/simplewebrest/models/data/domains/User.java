@@ -13,7 +13,7 @@ public class User {
     @Id
     @GeneratedValue
     private Long Id;
-    private String name;
+    private String userName;
     private String email;
     private String password;
 
@@ -29,12 +29,12 @@ public class User {
         Id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmail() {
@@ -65,7 +65,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "Id=" + Id +
-                ", name='" + name + '\'' +
+                ", name='" + userName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +
